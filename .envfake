@@ -1,0 +1,5 @@
+Database = database_name
+Database_user = user
+Database_pass = password
+Database_host = localhost
+Database_port = 5432

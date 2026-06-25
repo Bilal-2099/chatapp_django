@@ -3,16 +3,93 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Rooms</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000, #0a1a2f);
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(10, 20, 40, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 140, 255, 0.2);
+            border: 1px solid rgba(0, 140, 255, 0.2);
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #cfe8ff;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #1e3a5f;
+            background: #0b0f1a;
+            color: #ffffff;
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1e90ff;
+            box-shadow: 0 0 10px rgba(30, 144, 255, 0.4);
+        }
+
+        input[type="button"] {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0077ff, #00b3ff);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="button"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #9bb4d1;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
+
+    <div class="container">
+        <h1>Enter Chat Room</h1>
+        <div class="hint">Type a room name and press Enter or click Enter</div>
+
+        <input id="room-name-input" type="text" size="100" placeholder="e.g. gaming, study, general"><br>
+        <input id="room-name-submit" type="button" value="Enter">
+    </div>
 
     <script>
         document.querySelector('#room-name-input').focus();
+
         document.querySelector('#room-name-input').onkeyup = function(e) {
-            if (e.key === 'Enter') {  // enter, return
+            if (e.key === 'Enter') {
                 document.querySelector('#room-name-submit').click();
             }
         };
@@ -22,5 +99,6 @@
             window.location.pathname = '/chat/' + roomName + '/';
         };
     </script>
+
 </body>
 </html>

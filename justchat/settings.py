@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +27,7 @@ SECRET_KEY = 'django-insecure-i9tbuwq7z226x7*t(i17njs%cq*t6ax$%du&cy%2+x^uh(dp+7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 # Application definition
 
@@ -87,11 +88,12 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        "TEST": {
-            "NAME": BASE_DIR / "db.sqlite3",
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('Database'),
+        'USER': config('Database_user'),
+        'PASSWORD': config('Database_pass'),
+        'HOST': config('Database_host',  default='localhost'),
+        'PORT': config('Database_port',  default='5432'),
     }
 }
 
@@ -131,3 +133,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+LOGIN_REDIRECT_URL = "/chat/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"

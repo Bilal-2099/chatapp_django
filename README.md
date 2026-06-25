@@ -119,7 +119,6 @@ Open same room in multiple tabs to chat in real time.
 ## 🚀 Future improvements
 
 - Save chat history in database  
-- Add login/authentication  
 - Improve frontend UI  
 
 ---
