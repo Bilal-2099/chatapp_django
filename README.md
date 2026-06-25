@@ -33,14 +33,19 @@ justchat/
 │   ├── routing.py
 │   ├── urls.py
 |   |── views.py
-│   └── templates/chat/
-|        |── index.html
-|        └── room.html
+│   └── templates/
+|        |── chat/
+|        |   |── index.html
+|        |   |── room.html
+|        |   └── signup.html
+|        └── registration/
+|            └── login.html
 ├── justchat/
 │   ├── settings.py
 │   ├── asgi.py
 │   └── urls.py
 ├── manage.py
+├── .env
 └── requirements.txt
 ```
 
