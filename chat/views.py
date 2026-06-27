@@ -5,17 +5,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, "chat/index.html")
 
-# def signup(request):
-#     if request.method == "POST":
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("login")
-#     else:
-#         form = UserCreationForm()
-
-#     return render(request, "chat/signup.html", {"form": form})
-
 def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
